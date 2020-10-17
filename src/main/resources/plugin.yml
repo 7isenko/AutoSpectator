@@ -1,0 +1,15 @@
+name: AutoSpectator
+version: "1.0"
+author: 7isenko
+main: io.github._7isenko.autospectator.AutoSpectator
+commands:
+  as:
+    aliases: [autospectator, autogm3, autogms, agms]
+    description: Opens an auto-spectator interface
+    usage: /as
+    permission: autospectator.command
+    permission-message: You can't manipulate players' lifecycle
+permissions:
+  autospectator.command:
+    default: op
+    description: Allows player to use the command
