@@ -25,7 +25,7 @@ public class MenuListener implements Listener {
         if (event.getClickedInventory() != null && !event.getClickedInventory().getName().equals(menu.getInventory().getName()))
             return;
         final ItemStack clickedItem = event.getCurrentItem();
-        if (clickedItem == null || clickedItem.getType() == Material.AIR) {
+        if (clickedItem == null) {
             event.getWhoClicked().closeInventory();
             return;
         }
