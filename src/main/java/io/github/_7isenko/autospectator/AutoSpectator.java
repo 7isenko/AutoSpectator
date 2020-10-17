@@ -1,6 +1,8 @@
 package io.github._7isenko.autospectator;
 
-import io.github._7isenko.autospectator.cui.SpigotPluginCommand;
+import io.github._7isenko.autospectator.cui.AutoSpectatorCommand;
+import io.github._7isenko.autospectator.gui.MenuHandler;
+import io.github._7isenko.autospectator.managing.GameModeManager;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,7 +14,9 @@ public class AutoSpectator extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-        this.getCommand("as").setExecutor(new SpigotPluginCommand());
+        GameModeManager gameModeManager = new GameModeManager();
+        MenuHandler menuHandler = new MenuHandler(gameModeManager);
+        this.getCommand("as").setExecutor(new AutoSpectatorCommand(gameModeManager, menuHandler));
     }
 
     @Override
