@@ -19,10 +19,11 @@ public class MenuListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onClick(InventoryClickEvent event) {
-        if (!event.getInventory().getName().equals(menu.getInventory().getName()))
+        if (!event.getInventory().equals(menu.getInventory())) {
             return;
+        }
         event.setCancelled(true);
-        if (event.getClickedInventory() != null && !event.getClickedInventory().getName().equals(menu.getInventory().getName()))
+        if (event.getClickedInventory() != null && !event.getClickedInventory().equals(menu.getInventory()))
             return;
         final ItemStack clickedItem = event.getCurrentItem();
         if (clickedItem == null) {
@@ -36,7 +37,7 @@ public class MenuListener implements Listener {
 
     @EventHandler
     public void onInventoryClick(final InventoryDragEvent e) {
-        if (e.getInventory().getName().equals(menu.getInventory().getName())) {
+        if (e.getInventory().equals(menu.getInventory())) {
             e.setCancelled(true);
         }
     }
